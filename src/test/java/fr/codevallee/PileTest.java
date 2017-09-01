@@ -20,23 +20,26 @@ public class PileTest {
 	public void pushTest() throws Exception {
 		pile.push("a");
 		assertTrue("verif push", pile.listPile.size() == 1);
-		
+
 	}
+
 	@Test
 	public void popTest() throws Exception {
 		
 		pile.push("a");
 		int tailleList = pile.listPile.size();
 		pile.pop();
-		assertTrue("verif pop", pile.listPile.size()== (tailleList-1));
+		
+		assertTrue("verif pop", pile.listPile.size() == (tailleList - 1));
 
 	}
 
 	@Test
-	public void popAllTest() throws Exception{
+	public void popAllTest() throws Exception {
 		pile.popAll();
-		assertTrue(pile.listPile.size()==0);
+		assertTrue(pile.listPile.size() == 0);
 	}
+
 	@Test
 	public void peekTest() {
 		pile.push("nouveau string");
@@ -44,12 +47,7 @@ public class PileTest {
 		pile.peek();
 		assertEquals("renouveau string", pile.peek());
 	}
-	
-	
-	
-	
-	
-	
+
 	/**
 	 * @return the pile
 	 */
@@ -58,7 +56,8 @@ public class PileTest {
 	}
 
 	/**
-	 * @param pile the pile to set
+	 * @param pile
+	 *            the pile to set
 	 */
 	public void setPile(Pile pile) {
 		this.pile = pile;
