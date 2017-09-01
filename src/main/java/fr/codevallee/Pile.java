@@ -39,7 +39,7 @@ public class Pile {
 	}
 
 	public String peek() {
-		return listPile.get(0);
+		return listPile.get(listPile.size()-1);
 
 	}
 

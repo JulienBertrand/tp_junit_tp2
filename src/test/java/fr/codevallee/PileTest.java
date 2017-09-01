@@ -35,13 +35,14 @@ public class PileTest {
 	@Test
 	public void popAllTest() throws Exception{
 		pile.popAll();
-		assertTrue("verif popall", pile.listPile.size()==0);
+		assertTrue(pile.listPile.size()==0);
 	}
 	@Test
 	public void peekTest() {
 		pile.push("nouveau string");
+		pile.push("renouveau string");
 		pile.peek();
-		assertTrue(pile.listPile.get(0)== "nouveau string");
+		assertEquals("renouveau string", pile.peek());
 	}
 	
 	
