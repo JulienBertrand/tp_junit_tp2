@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pile {
-
 	private int taille;
 
+	List<String> listPile = new ArrayList<String>();
+	
 	/**
 	 * 
 	 */
@@ -20,16 +21,15 @@ public class Pile {
 		this.taille = taille;
 	}
 
-	List<String> listPile = new ArrayList<String>();
-
+	
 	public void push(String item) {
 		listPile.add(item);
 
-		// System.out.println(listPile.get(0));
+	
 	}
 
 	public void pop() {
-		int dernierElement = listPile.size()- 1;
+		int dernierElement = getTaille()- 1;
 		listPile.remove(dernierElement);
 	}
 
@@ -39,7 +39,7 @@ public class Pile {
 	}
 
 	public String peek() {
-		return listPile.get(listPile.size()-1);
+		return listPile.get(getTaille()-1);
 
 	}
 
@@ -47,7 +47,7 @@ public class Pile {
 	 * @return the taille
 	 */
 	public int getTaille() {
-		return taille;
+		return listPile.size();
 	}
 
 	/**

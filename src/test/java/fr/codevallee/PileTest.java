@@ -18,34 +18,42 @@ public class PileTest {
 
 	@Test
 	public void pushTest() throws Exception {
+		//Ajout d'un premier élément dans la liste listPile
 		pile.push("a");
-		assertTrue("verif push", pile.listPile.size() == 1);
-
+		assertEquals("a", pile.listPile.get(0));
+		System.out.println(pile.listPile.get(0));
+		assertTrue("verif push", pile.listPile.contains("a"));
+		assertTrue("verif push", pile.getTaille() !=0);
 	}
 
 	@Test
 	public void popTest() throws Exception {
 		
 		pile.push("a");
-		int tailleList = pile.listPile.size();
+		pile.push("b");
+		int tailleList = pile.getTaille();
+		System.out.println(pile.listPile.get(pile.getTaille()-1));
 		pile.pop();
 		
-		assertTrue("verif pop", pile.listPile.size() == (tailleList - 1));
-
+		assertTrue("verif pop", pile.getTaille() == (tailleList - 1));
+		assertEquals(pile.listPile.get(0), pile.listPile.get(pile.getTaille()-1));
+		//System.out.println(pile.getTaille());
 	}
 
 	@Test
 	public void popAllTest() throws Exception {
 		pile.popAll();
-		assertTrue(pile.listPile.size() == 0);
+		assertTrue(pile.getTaille() == 0);
 	}
 
 	@Test
 	public void peekTest() {
 		pile.push("nouveau string");
 		pile.push("renouveau string");
+		pile.push("encore un dernier string");
 		pile.peek();
-		assertEquals("renouveau string", pile.peek());
+		assertEquals(pile.listPile.get(pile.getTaille()-1), pile.peek());
+		System.out.println(pile.listPile.get(pile.getTaille()-1));
 	}
 
 	/**
