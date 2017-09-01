@@ -1,33 +1,65 @@
-package fr;
+package fr.codevallee;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.junit.Before;
 import org.junit.Test;
 
 import fr.codevallee.Pile;
 
-
-
 public class PileTest {
+	private Pile pile;
 
-	
+	@Before
+	public void initialition() {
+		pile = new Pile();
+
+	}
+
 	@Test
-	public  void pushTest() throws Exception{
-		Pile pile;
-		
-		List<String>listPile=new ArrayList<String>();
-		listPile.add("a");
-		pile.push(listPile);
-		assertEquals(listPile.size()!=0, listPile.size());
-//		if(listPile.contains("A")==true) {
-//			
-//		}
-		
-		
+	public void pushTest() throws Exception {
+		pile.push("a");
+		assertTrue("verif push", pile.listPile.size() == 1);
 		
 	}
+	@Test
+	public void popTest() throws Exception {
+		
+		pile.push("a");
+		int tailleList = pile.listPile.size();
+		pile.pop();
+		assertTrue("verif pop", pile.listPile.size()== (tailleList-1));
+
+	}
+
+	@Test
+	public void popAllTest() throws Exception{
+		pile.popAll();
+		assertTrue("verif popall", pile.listPile.size()==0);
+	}
+	@Test
+	public void peekTest() {
+		pile.push("nouveau string");
+		pile.peek();
+		assertTrue(pile.listPile.get(0)== "nouveau string");
+	}
 	
+	
+	
+	
+	
+	
+	/**
+	 * @return the pile
+	 */
+	public Pile getPile() {
+		return pile;
+	}
+
+	/**
+	 * @param pile the pile to set
+	 */
+	public void setPile(Pile pile) {
+		this.pile = pile;
+	}
 }

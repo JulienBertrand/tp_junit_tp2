@@ -29,7 +29,7 @@ public class Pile {
 	}
 
 	public void pop() {
-		int dernierElement = listPile.size() - 1;
+		int dernierElement = listPile.size()- 1;
 		listPile.remove(dernierElement);
 	}
 
@@ -38,8 +38,8 @@ public class Pile {
 
 	}
 
-	public String peek(String item) {
-		return listPile.get(listPile.size());
+	public String peek() {
+		return listPile.get(0);
 
 	}
 
